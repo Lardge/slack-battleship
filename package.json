@@ -1,6 +1,6 @@
 {
   "name": "slack-battleship",
-  "description": "Challenge your Slack colleagues in a game of Battleship",
+  "description": "Challenge your Slack friends and colleagues in a game of Battleship",
   "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {

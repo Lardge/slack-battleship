@@ -13,7 +13,8 @@ const config = {
   WEBHOOK_URL: process.env.WEBHOOK_URL,
   BATTLESHIP_COMMAND_TOKEN: process.env.BATTLESHIP_COMMAND_TOKEN,
   SLACK_TOKEN: process.env.SLACK_TOKEN,
-  ICON_EMOJI: ':passenger_ship:'
+  ICON_EMOJI: ':passenger_ship:',
+  USERNAME: "Battleship"
 }
 
 module.exports = (key) => {

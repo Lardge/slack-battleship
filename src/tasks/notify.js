@@ -13,7 +13,7 @@ bot.configureIncomingWebhook({ url: config('WEBHOOK_URL') })
 
 const msgDefaults = {
   response_type: 'in_channel',
-  username: 'Starbot',
+  username: config('USERNAME'),
   icon_emoji: config('ICON_EMOJI')
 }
 
@@ -31,11 +31,11 @@ trending('javascript', (err, repos) => {
 
   let msg = _.defaults({ attachments: attachments }, msgDefaults)
   
-  msg = {"channel": "#dev", "username": "Battleship", "text": "This is a test message posted to #dev and comes from a bot named Battleship.", "icon_emoji": ":passenger_ship:"};
+  msg = {"channel": "#dev", "username": config('USERNAME'), "text": "This is a test message posted to #dev and comes from a bot named Battleship.", "icon_emoji": ":passenger_ship:"};
 
   bot.sendWebhook(msg, (err, res) => {
     if (err) throw err
 
-    console.log(`\n🚀  Starbot report delivered 🚀`)
+    console.log(`\n🚀  Battleship report delivered 🚀`)
   })
 })

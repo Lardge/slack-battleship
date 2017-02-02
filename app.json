@@ -1,7 +1,7 @@
 {
-  "name": "🌟 Starbot",
-  "description": "Starbot is GitHub's trending open-source page, reincarnated as a Slack bot",
-  "repository": "https://github.com/mattcreager/starbot",
+  "name": "Battleship",
+  "description": "Battleship lets you compete with your friends and colleagues in a game of Battleship",
+  "repository": "https://github.com/jaksah/slack-battleship",
   "logo": "https://heroku-www-files.s3.amazonaws.com/starbot/starbot-icon.png",
   "success_url": "/",
   "env": {

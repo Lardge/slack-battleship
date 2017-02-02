@@ -47,7 +47,7 @@ app.listen(config('PORT'), (err) => {
   console.log(`\n🚀  Battleship bot LIVES on PORT ${config('PORT')} 🚀`)
 
   if (config('SLACK_TOKEN')) {
-    console.log(`🤖  beep boop: @starbot is real-time\n`)
+    console.log(`🤖  beep boop: @battleship is real-time\n`)
     bot.listen({ token: config('SLACK_TOKEN') })
   }
 })
