@@ -8,8 +8,8 @@
     "HEROKU_APP_NAME": {
       "required": true
     },
-    "STARBOT_COMMAND_TOKEN": {
-      "description": "Slash command token, for the starbot command endpoint",
+    "BATTLESHIP_COMMAND_TOKEN": {
+      "description": "Slash command token, for the battleship command endpoint",
       "required": true
     },
     "SLACK_TOKEN": {
