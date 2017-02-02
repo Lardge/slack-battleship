@@ -30,6 +30,8 @@ trending('javascript', (err, repos) => {
   })
 
   let msg = _.defaults({ attachments: attachments }, msgDefaults)
+  
+  msg = {"channel": "#dev", "username": "Battleship", "text": "This is a test message posted to #dev and comes from a bot named Battleship.", "icon_emoji": ":passenger_ship:"};
 
   bot.sendWebhook(msg, (err, res) => {
     if (err) throw err

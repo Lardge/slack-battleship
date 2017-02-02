@@ -26,7 +26,7 @@ app.get('/', (req, res) => { res.send('\n 👋 🌍 \n') })
 app.post('/commands/battleship', (req, res) => {
   let payload = req.body
 
-  if (!payload || payload.token !== config('STARBOT_COMMAND_TOKEN')) {
+  if (!payload || payload.token !== config('BATTLESHIP_COMMAND_TOKEN')) {
     let err = '✋  What now? An invalid slash token was provided\n' +
               '   Is your Slack slash token correctly configured?'
     console.log(err)
