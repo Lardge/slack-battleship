@@ -3,6 +3,18 @@
 ### Supported `/slash` commands
 
 
+### Commands
+Play in Direct Messaging to other user.
+```
+play // start a game with another user
+concede // concede a game with another user
+board // gives both your current board and the attacks you've made on the opponents board
+attack <coordinate> // Returns error message if: Not your turn, coordinate not found, already attacked coordinate
+
+// Bonus
+scoreboard
+```
+
 ### Install
 
 ```shell
