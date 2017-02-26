@@ -22,8 +22,9 @@ const handler = (payload, res) => {
 }
 
 
-
 module.exports = {
     pattern: /play/ig,
-    handler: handler
+    handler: handler,
+    name: 'play',
+    description: 'Challenge a friend in a game of Battleship'
 }

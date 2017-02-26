@@ -36,5 +36,7 @@ const handler = (payload, res) => {
 
 module.exports = {
     pattern: /repos/ig,
+    name: 'repos',
+    description: 'Repos...',
     handler: handler
 }

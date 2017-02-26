@@ -1,39 +1,41 @@
+'use strict';
 
-'use strict'
-
-const _ = require('lodash')
-const config = require('../config')
+const _ = require('lodash');
+const config = require('../config');
+const commands = require('../commands');
 
 const msgDefaults = {
   response_type: 'in_channel',
   username: config('USERNAME'),
   icon_emoji: config('ICON_EMOJI')
-}
+};
 
-let attachments = [
-  {
-    title: 'Battleship will help you find the hippest repos on GitHub',
-    color: '#2FA44F',
-    text: '`/battleship repos` returns hip repos \n`/battleship javascript` returns hip JavaScript repos',
-    mrkdwn_in: ['text']
-  },
-  {
-    title: 'Configuring Battleship',
+const attachmentDefaults = {
     color: '#E3E4E6',
-    text: '`/battleship help` ... you\'re lookin at it! \n',
     mrkdwn_in: ['text']
-  }
-]
+};
+
+const buildAttachment = (command, index) => {
+    return _.defaults({
+        title: index === 0 ? 'Available commands:' : undefiend,
+        text: '`' + command.name +'` ' + command.description
+    }, attachmentDefaults);
+};
 
 const handler = (payload, res) => {
   let msg = _.defaults({
     channel: payload.channel_name,
-    attachments: attachments
-  }, msgDefaults)
+    attachments: commands.map(buildAttachment)
+  }, msgDefaults);
 
-  res.set('content-type', 'application/json')
-  res.status(200).json(msg)
+  res.set('content-type', 'application/json');
+  res.status(200).json(msg);
   return
-}
+};
 
-module.exports = { pattern: /help/ig, handler: handler }
+module.exports = {
+    pattern: /help/ig,
+    handler: handler,
+    name: 'help',
+    description: '... you\'re lookin at it!\n'
+}

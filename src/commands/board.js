@@ -25,5 +25,7 @@ const handler = (payload, res) => {
 
 module.exports = {
     pattern: /board/ig,
-    handler: handler
+    handler: handler,
+    name: 'board',
+    description: 'Show the current board'
 }
