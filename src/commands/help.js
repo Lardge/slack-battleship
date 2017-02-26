@@ -2,7 +2,6 @@
 
 const _ = require('lodash');
 const config = require('../config');
-const commands = require('../commands');
 
 const msgDefaults = {
   response_type: 'in_channel',
@@ -17,12 +16,13 @@ const attachmentDefaults = {
 
 const buildAttachment = (command, index) => {
     return _.defaults({
-        title: index === 0 ? 'Available commands:' : undefiend,
-        text: '`' + command.name +'` ' + command.description
+        title: index === 0 ? 'Available commands:' : undefined,
+        text: '`/battleship ' + command.name +'` ' + command.description
     }, attachmentDefaults);
 };
 
 const handler = (payload, res) => {
+  const commands = require('../commands');
   let msg = _.defaults({
     channel: payload.channel_name,
     attachments: commands.map(buildAttachment)
