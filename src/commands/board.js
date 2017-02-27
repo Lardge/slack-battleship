@@ -21,11 +21,13 @@ const handler = (payload, res) => {
     return
 }
 
-
+const help = {
+    name: 'board',
+    description: 'Show the current board'
+};
 
 module.exports = {
     pattern: /board/ig,
     handler: handler,
-    name: 'board',
-    description: 'Show the current board'
+    help: help  
 }

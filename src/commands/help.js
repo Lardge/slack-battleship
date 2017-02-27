@@ -15,9 +15,10 @@ const attachmentDefaults = {
 };
 
 const buildAttachment = (command, index) => {
+    const help = command.help;
     return _.defaults({
         title: index === 0 ? 'Available commands:' : undefined,
-        text: '`/battleship ' + command.name +'` ' + command.description
+        text: '`/battleship ' + help.name +'` ' + help.description
     }, attachmentDefaults);
 };
 
@@ -33,9 +34,13 @@ const handler = (payload, res) => {
   return
 };
 
+const help = {
+    name: 'help',
+    description: '... you\'re lookin at it!\n'
+};
+
 module.exports = {
     pattern: /help/ig,
     handler: handler,
-    name: 'help',
-    description: '... you\'re lookin at it!\n'
+    help: help
 }

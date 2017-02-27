@@ -21,11 +21,13 @@ const handler = (payload, res) => {
     return
 }
 
-
+const help = {
+    name: 'attack [coordinate]',
+    description: 'Place an attack on your opponent'
+};
 
 module.exports = {
     pattern: /attack/ig,
     handler: handler,
-    name: 'attack',
-    description: 'Place an attack on your opponent'
+    help: help  
 }

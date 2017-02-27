@@ -21,10 +21,13 @@ const handler = (payload, res) => {
     return
 }
 
+const help = {
+    name: 'concede',
+    description: 'Concede current game'
+}
 
 module.exports = {
     pattern: /concede/ig,
     handler: handler,
-    name: 'concede',
-    description: 'Concede current game'
+    help: help
 }

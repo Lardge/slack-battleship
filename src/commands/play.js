@@ -21,10 +21,13 @@ const handler = (payload, res) => {
     return
 }
 
+const help = {
+    name: 'play',
+    description: 'Challenge a friend in a game of Battleship'
+};
 
 module.exports = {
     pattern: /play/ig,
     handler: handler,
-    name: 'play',
-    description: 'Challenge a friend in a game of Battleship'
+    help: help
 }
