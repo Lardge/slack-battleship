@@ -15,6 +15,11 @@ attack <coordinate> // Returns error message if: Not your turn, coordinate not f
 scoreboard
 ```
 
+### Inspiration
+
+![inspiration](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Battleship_game_board.svg/500px-Battleship_game_board.svg.png "inspiration")
+
+
 ### Install
 
 ```shell
