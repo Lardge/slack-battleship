@@ -26,8 +26,63 @@ const help = {
     description: 'Show the current board'
 };
 
+//BOARD BEGINS
+const boardSize = 10;
+
+var getEmptyBoard = (boardSize) => {
+    return new Array(boardSize).fill(new Array(boardSize).fill(0));
+}
+
+var shipFactory = (shipCoordinate, shipSize, shipDirection) => {
+    // Validate direction
+    let validatedDirection = undefined;
+    switch (shipDirection.toUpperCase()) {
+        case "RIGHT":
+        case "DOWN":
+            validatedDirection = shipDirection.toUpperCase();
+            break;
+        default:
+    }
+
+    // Validate shipSize
+    let validatedShipSize = Number.isNaN(Number(shipSize)) ? undefined : shipSize;
+
+    // Validate Coordinate expected shape {x: number, y: number}
+    const hasDefinedCoords = shipCoordinate &&
+        "x" in shipCoordinate && "y" in shipCoordinate;
+    const hasIntegerCoords = hasDefinedCoords && Number.isInteger(shipCoordinate.x) && Number.isInteger(shipCoordinate.y);
+    const hasCoordsInLowerBounds = hasIntegerCoords &&
+        shipCoordinate.x >= 1 && shipCoordinate.y >= 1;
+    const hasXInBounds = validatedDirection && hasCoordsInLowerBounds &&
+        (
+            (validatedDirection === "RIGHT" && shipCoordinate.x + shipSize <= boardSize) ||
+            (validatedDirection === "DOWN" && shipCoordinate.x <= boardSize)
+        );
+    const hasYInBounds = validatedDirection && hasCoordsInLowerBounds &&
+        (
+            (validatedDirection === "RIGHT" && shipCoordinate.y <= boardSize) ||
+            (validatedDirection === "DOWN" && shipCoordinate.y + shipSize <= boardSize)
+        );
+
+    let validatedCoordinate = hasXInBounds && hasYInBounds ? shipCoordinate : undefined;
+
+    if (validatedDirection && validatedShipSize && validatedCoordinate) {
+        return {
+            coordinate: validatedCoordinate,
+            shipSize: validatedShipSize,
+            direction: validatedDirection
+        };
+    } else {
+        throw new Error("Invalid arguments for creating a Ship");
+    }
+}
+
+
+//EXPORT
 module.exports = {
     pattern: /board/ig,
     handler: handler,
-    help: help  
+    help: help,
+    getEmptyBoard: getEmptyBoard,
+    shipFactory: shipFactory
 }
